@@ -6,16 +6,6 @@ namespace Api
 {
     public static class Musicas
     {
-    //             private musicas : Array<Musica> = [
-    //        ,
-    //        new Musica(2,'Another one Bites the Dust','QUEEN', 'The Game', new Date('1980-8-22')),
-    //        new Musica(3,'Fortunate Son','Creedence', 'Willy and the Poor Boys'),
-    //        new Musica(4,'Sound of Silence','Simon & Garfunkel')
-    //      ];
-
-    //      private musicasDaSemana : Array<Musica> = [
-    //        new Musica(1,'Best of You','Foo Fighters', 'In Your Honor', new Date('2005-5-30')),
-    //new Musica(2,'Stranger Things Have Happened','Foo Fighters', 'Echoes, Silence, Patience & Grace')
         private static List<Musica> ListaMusicas = new List<Musica>() {
             new Musica(1, "Back in Black", "AC/DC", "Back in Black", new DateTime(1980, 7, 25), Classificacao.Favorita),
             new Musica(2,"Another one Bites the Dust","QUEEN", "The Game", new DateTime(1980,8,22), Classificacao.Favorita),

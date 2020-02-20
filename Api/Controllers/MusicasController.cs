@@ -9,21 +9,24 @@ namespace Api.Controllers
     public class MusicasController : ControllerBase
     {
         [HttpGet("favoritas")]
-        public ActionResult<List<Musica>> GetFavoritas()
+        public ActionResult<List<MusicaDto>> GetFavoritas()
         {
-            return Musicas.BuscarFavoritas();
+            var resultado = Musicas.BuscarFavoritas();
+            return Mapper.MapToDto(resultado);
         }
 
         [HttpGet("da-semanda")]
-        public ActionResult<List<Musica>> GetDaSemana()
+        public ActionResult<List<MusicaDto>> GetDaSemana()
         {
-            return Musicas.BuscarDaSemana();
+            var resultado = Musicas.BuscarDaSemana();
+            return Mapper.MapToDto(resultado);
         }
 
         [HttpGet]
-        public ActionResult<List<Musica>> Get()
+        public ActionResult<List<MusicaDto>> Get()
         {
-            return Musicas.BuscarTodas();
+            var resultado = Musicas.BuscarTodas();
+            return Mapper.MapToDto(resultado);
         }
 
         
