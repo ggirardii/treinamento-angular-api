@@ -11,22 +11,19 @@ namespace Api.Controllers
         [HttpGet("favoritas")]
         public ActionResult<List<MusicaDto>> GetFavoritas()
         {
-            var resultado = Musicas.BuscarFavoritas();
-            return Mapper.MapToDto(resultado);
+            return Musicas.BuscarFavoritas();
         }
 
         [HttpGet("da-semanda")]
         public ActionResult<List<MusicaDto>> GetDaSemana()
         {
-            var resultado = Musicas.BuscarDaSemana();
-            return Mapper.MapToDto(resultado);
+            return Musicas.BuscarDaSemana();
         }
 
         [HttpGet]
         public ActionResult<List<MusicaDto>> Get()
         {
-            var resultado = Musicas.BuscarTodas();
-            return Mapper.MapToDto(resultado);
+            return Musicas.BuscarTodas();
         }
 
         
