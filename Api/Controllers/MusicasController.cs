@@ -14,7 +14,7 @@ namespace Api.Controllers
             return Musicas.BuscarFavoritas();
         }
 
-        [HttpGet("da-semanda")]
+        [HttpGet("da-semana")]
         public ActionResult<List<MusicaDto>> GetDaSemana()
         {
             return Musicas.BuscarDaSemana();
