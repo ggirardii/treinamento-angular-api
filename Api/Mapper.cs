@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Api
 {
     public static class Mapper
     {
         public static MusicaDto MapToDto(Musica musica)
-        {
-            return new MusicaDto
+            => new MusicaDto
             {
                 Nome = musica.Nome,
                 Autor = musica.Autor,
@@ -14,13 +14,6 @@ namespace Api
                 DataLancamento = musica.DataLancamento,
                 Classificacao = musica.Classificacao
             };
-        }
-        public static List<MusicaDto> MapToDto(List<Musica> musicas)
-        {
-            var musicasDto = new List<MusicaDto>();
-            foreach (var musica in musicas)
-                musicasDto.Add(MapToDto(musica));
-            return musicasDto;
-        }
+        public static List<MusicaDto> MapToDto(List<Musica> musicas) => musicas.Select(x => MapToDto(x)).ToList();
     }
 }
