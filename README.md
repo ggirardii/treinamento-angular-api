@@ -1,2 +1,2 @@
-# MusicasApi
-Api utilizada no módulo 2 do treinamento de Angular 9
+# Musicas Api
+Api utilizada no segundo módulo do treinamento de Angular para a equipe de Logística do Havan Labs.
