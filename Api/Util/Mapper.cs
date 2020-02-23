@@ -8,6 +8,7 @@ namespace Api
         public static MusicaDto MapToDto(Musica musica)
             => new MusicaDto
             {
+                Id = musica.Id,
                 Nome = musica.Nome,
                 Autor = musica.Autor,
                 Album = musica.Album,

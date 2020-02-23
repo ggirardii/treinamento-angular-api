@@ -8,22 +8,28 @@ namespace Api.Controllers
     [ApiController]
     public class MusicasController : ControllerBase
     {
+        private readonly IMusicaService _musicaService;
+        public MusicasController(IMusicaService musicaService)
+        {
+            _musicaService = musicaService;
+        }
+
         [HttpGet("favoritas")]
         public ActionResult<List<MusicaDto>> GetFavoritas()
         {
-            return Musicas.BuscarFavoritas();
+            return _musicaService.BuscarFavoritas();
         }
 
         [HttpGet("da-semana")]
         public ActionResult<List<MusicaDto>> GetDaSemana()
         {
-            return Musicas.BuscarDaSemana();
+            return _musicaService.BuscarDaSemana();
         }
 
         [HttpGet]
         public ActionResult<List<MusicaDto>> Get()
         {
-            return Musicas.BuscarTodas();
+            return _musicaService.BuscarTodas();
         }
 
         
@@ -32,7 +38,7 @@ namespace Api.Controllers
         {
             try
             {
-                Musicas.Adicionar(musicaDto);
+                _musicaService.Adicionar(musicaDto);
                 return Ok();
             }
             catch (Exception e)
@@ -47,7 +53,7 @@ namespace Api.Controllers
         {
             try
             {
-                Musicas.Atualizar(musicaDto);
+                _musicaService.Atualizar(musicaDto);
                 return Ok();
             }
             catch (Exception e)
@@ -63,7 +69,7 @@ namespace Api.Controllers
         {
             try
             {
-                Musicas.Remover(id);
+                _musicaService.Remover(id);
                 return Ok();
             }
             catch (Exception e)

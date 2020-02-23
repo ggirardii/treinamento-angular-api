@@ -10,13 +10,14 @@ namespace Api
         public string Album { get; private set; }
         public DateTime? DataLancamento { get; private set; }
         public Classificacao Classificacao { get; private set; }
-        public Musica(int id, string nome, string autor, string album = "", DateTime? dataLancamento = null, Classificacao classificacao = Classificacao.SemClassificacao)
+        public Musica(string nome, string autor, string album = "", DateTime? dataLancamento = null, Classificacao classificacao = Classificacao.SemClassificacao)
         {
             if (string.IsNullOrWhiteSpace(nome))
                 throw new ArgumentException("Nome da música deve ser informado.");
             if (string.IsNullOrWhiteSpace(autor))
                 throw new ArgumentException("Autor da música deve ser informado.");
-            Id = id;
+
+            Id = IdMusica.Proximo();
             Nome = nome;
             Autor = autor;
             Album = album;
@@ -24,7 +25,7 @@ namespace Api
             Classificacao = classificacao;
         }
 
-        public void Atualizar(string nome, string autor, string album = "", DateTime? dataLancamento = null)
+        public void Atualizar(string nome, string autor, string album, DateTime? dataLancamento)
         {
             if (string.IsNullOrWhiteSpace(nome))
                 throw new ArgumentException("Nome da música deve ser informado.");
