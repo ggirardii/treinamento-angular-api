@@ -8,10 +8,11 @@ namespace Api
     {
         private static List<Musica> ListaMusicas = new List<Musica>();
         private List<Musica> BuscarPorClassificacao(Classificacao classificacao) => ListaMusicas.Where(x => x.Classificacao == classificacao).ToList();
-        public void Adicionar(MusicaDto musicaDto)
+        public int Adicionar(MusicaDto musicaDto)
         {
             var musica = new Musica(musicaDto.Nome, musicaDto.Autor, musicaDto.Album, musicaDto.DataLancamento, musicaDto.Classificacao);
             ListaMusicas.Add(musica);
+            return musica.Id;
         }
         public void Remover(int idMusica)
         {
@@ -23,7 +24,10 @@ namespace Api
         }
         public void Atualizar(MusicaDto musicaDto)
         {
-            var musica = BuscarPorId(musicaDto.Id);
+            if (musicaDto.Id == null)
+                throw new ArgumentException("Objeto de alteração inválido.");
+
+            var musica = BuscarPorId((int)musicaDto.Id);
             if (musica == null)
                 throw new ArgumentException("Música não foi encontrada.");
 

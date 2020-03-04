@@ -38,8 +38,8 @@ namespace Api.Controllers
         {
             try
             {
-                _musicaService.Adicionar(musicaDto);
-                return Ok();
+                var musicaId = _musicaService.Adicionar(musicaDto);
+                return Ok(musicaId);
             }
             catch (Exception e)
             {

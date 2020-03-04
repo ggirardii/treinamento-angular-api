@@ -4,7 +4,7 @@ namespace Api
 {
     public interface IMusicaService
     {
-        void Adicionar(MusicaDto musicaDto);
+        int Adicionar(MusicaDto musicaDto);
         void Remover(int idMusica);
         void Atualizar(MusicaDto musicaDto);
         List<MusicaDto> BuscarTodas();
